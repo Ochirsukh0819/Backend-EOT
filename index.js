@@ -1,7 +1,7 @@
 const express = require("express");
 const { Pool } = require("pg");
 const cors = require("cors");
-
+const axios = require("axios");
 const app = express();
 const port = 3000;
 
@@ -26,11 +26,13 @@ const pool = new Pool({
 // });
 
 app.get("/", (req, res) => {
-  fetch(
-    "https://web-eot-default-rtdb.asia-southeast1.firebasedatabase.app/pizzahut.json"
-  )
-    .then((res) => res.json())
-    .then((data) => res.status(200).send(data))
+  axios
+    .get(
+      "https://web-eot-default-rtdb.asia-southeast1.firebasedatabase.app/pizzahut.json"
+    )
+    .then((response) => {
+      res.status(200).json(response.data);
+    })
     .catch((e) => res.status(500).send(e));
 });
 
