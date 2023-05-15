@@ -25,18 +25,14 @@ const pool = new Pool({
 //   );
 // });
 
-
-
-
-
-// app.get("/", (req, res) => {
-//   fetch(
-//     "https://web-eot-default-rtdb.asia-southeast1.firebasedatabase.app/pizzahut.json"
-//   )
-//     .then((res) => res.json())
-//     .then((data) => res.status(200).send(data))
-//     .catch((e) => res.status(500).send(e));
-// });
+app.get("/", (req, res) => {
+  fetch(
+    "https://web-eot-default-rtdb.asia-southeast1.firebasedatabase.app/pizzahut.json"
+  )
+    .then((res) => res.json())
+    .then((data) => res.status(200).send(data))
+    .catch((e) => res.status(500).send(e));
+});
 
 app.listen(port, () => {
   console.log(`Сервер аслааа. port: //localhost:port`);
