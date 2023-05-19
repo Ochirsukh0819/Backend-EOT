@@ -6,6 +6,8 @@ const app = express();
 const port = 3000;
 
 app.use(cors());
+
+
 //postgres database holboh
 const pool = new Pool({
   host: "localhost",
@@ -25,8 +27,10 @@ const pool = new Pool({
 //   );
 // });
 
+
+//firebase-tei holboh
 app.get("/", (req, res) => {
-  axios
+ axios 
     .get(
       "https://web-eot-default-rtdb.asia-southeast1.firebasedatabase.app/pizzahut.json"
     )
